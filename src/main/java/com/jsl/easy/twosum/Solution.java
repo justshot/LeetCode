@@ -1,5 +1,6 @@
 package com.jsl.easy.twosum;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class Solution {
@@ -16,7 +17,6 @@ public class Solution {
                 result[0] = j;
                 result[1] = found;
                 return result;
-
             }
         }
         return null;
@@ -24,6 +24,6 @@ public class Solution {
 
     public static void main(String[] args) {
         int[] test = {2, 7, 10};
-        System.out.println((new Solution().twoSum(test, 9)));
+        System.out.println(Arrays.toString(new Solution().twoSum(test, 12)));
     }
 }
