@@ -38,7 +38,7 @@ public class Solution {
     }
 
     public static void main(String[] args){
-        int got = new Solution().guessNumber(2126753390);
+        int got = new Solution().guessNumber(1);
         System.out.println("Result "+got);
     }
 }
