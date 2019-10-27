@@ -9,9 +9,9 @@ import java.util.Random;
 public class SolutionV2 {
     int pick = 0;
 
-    public SolutionV2(int n) {
-        this.pick = new Random().nextInt(n) + 1;
-        System.out.println("Pick is: " + this.pick);
+    public SolutionV2(int pick) {
+        System.out.println("Pick: " + pick);
+        this.pick = pick;
     }
 
     private int guess(int num) {
@@ -22,24 +22,36 @@ public class SolutionV2 {
 
     public int guessNumber(int n) {
         if (guess(n) == 0) return n;
-        int min = 1;
-        int max = n;
-        int mine = (min + max) / 2;
-        int outcome = guess(mine);
-        while (outcome != 0) {
-            if(outcome > 0) max = mine;
-            else min = mine;
-            mine = (min + max) / 2;
-            outcome = guess(mine);
+        int min = 1, max = n;
+        while (min <= max) {
+            int mid = min + (max - min) / 2;
+            int outcome = guess(mid);
+            if(outcome < 0) max = mid - 1;
+            else if (outcome > 0 ) min = mid + 1;
+            else return mid;
         }
-        return mine;
+        return -1;
     }
 
     public static void main(String[] args) {
-        for (int i = 1; i <= 1000; i++) {
-            int n = new Random().nextInt(Integer.MAX_VALUE);
-            int outcome = new SolutionV2(n).guessNumber(n);
-            System.out.println("Outcome: " + outcome);
-        }
+        int outcome = new SolutionV2(Integer.MAX_VALUE).guessNumber(Integer.MAX_VALUE);
+        System.out.println("Outcome: " + outcome);
+
+        outcome = new SolutionV2(1).guessNumber(Integer.MAX_VALUE);
+        System.out.println("Outcome: " + outcome);
+
+        outcome = new SolutionV2(1).guessNumber(1);
+        System.out.println("Outcome: " + outcome);
+
+
+        outcome = new SolutionV2(2).guessNumber(2);
+        System.out.println("Outcome: " + outcome);
+
+        outcome = new SolutionV2(6).guessNumber(10);
+        System.out.println("Outcome: " + outcome);
+
+        outcome = new SolutionV2(new Random().nextInt(Integer.MAX_VALUE) + 1).guessNumber(Integer.MAX_VALUE);
+        System.out.println("Outcome: " + outcome);
+
     }
 }
