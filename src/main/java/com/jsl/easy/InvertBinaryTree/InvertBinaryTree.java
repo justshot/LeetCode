@@ -1,8 +1,8 @@
 package com.jsl.easy.InvertBinaryTree;
 
-import javax.lang.model.type.IntersectionType;
+import com.jsl.common.TreeNode;
+
 import java.util.LinkedList;
-import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.Stack;
 
