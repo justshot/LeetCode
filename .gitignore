@@ -4,4 +4,4 @@
 .idea
 .settings
 .vscode
-./gradle
+/gradle
