@@ -1,21 +1,34 @@
 package com.jsl.common;
 
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.math.BigDecimal;
 
 public class DecimalTest {
     @Test
-    public static void testFloat() {
-        System.out.println("testWithFloats\n");
-        float a = 0.1f;
-        float b = 0.1f;
-        float c = 0.1f;
+    public void testFloat() {
+        System.out.println("Float: " + 0.3f * 3);
+        System.out.println("Double: " + 0.3d * 3);
+        BigDecimal x = new BigDecimal("0.3");
+        System.out.println("BigDecimal " + x.multiply(new BigDecimal("3")));
+    }
 
-        float d = a + b + c;
-        float e = d * 3;
-        float f = d * 100000;
+    @Test
+    public void testPromotionAndDemotion() {
+        System.out.println("Float lost precsion after 8 decimal number : " + 1.00000001f);
+        System.out.println("Double lost precision after 16 decimal number : " + 1.0000000000000001);
+        assertEquals(1.0000000000000001, 1.00000000000000002);
+        float f = 1.0000001f;
+        double e = f;
+        System.out.println("Promotion does lost precision : " + e);
+    }
 
-        System.out.println("a + b + c = d = " + d);
-        System.out.println("e = " + e);
-        System.out.println("f = " + f);
+    @Test
+    public void testInteger() {
+        byte b = 100;
+        short s = 10000;
+        int i = 100000;
+        long l = 10000L;
     }
 }
