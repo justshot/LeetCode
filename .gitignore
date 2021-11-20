@@ -1,7 +1,3 @@
-*.class
-.classpath
-.project
-.idea
-.settings
-.vscode
-/gradle
+.gradle/
+build/
+.idea/
