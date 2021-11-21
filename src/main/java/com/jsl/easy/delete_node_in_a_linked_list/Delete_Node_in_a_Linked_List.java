@@ -1,5 +1,7 @@
 package com.jsl.easy.delete_node_in_a_linked_list;
 
+import com.jsl.common.ListNode;
+
 /**
  * Created by shaoliang.
  */
